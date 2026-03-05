@@ -1,0 +1,90 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 31.07.2019., 12.53.06
+    Author     : vladandzulovic
+*/
+
+*{
+    box-sizing: border-box;
+}
+.container{
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
+img{
+    max-width: 100%;
+}
+
+.products{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.products article{
+    width: 24%;
+    flex:0 0 24%;
+    box-shadow: 0 0 3px #000;
+    margin-bottom: 16px;
+}
+
+.products article h3{
+    margin: 0 0 10px;
+    padding: 0 10px;
+}
+.products article p{
+    margin: 0 0 10px;
+    padding: 0 10px;
+}
+
+.d-flex{
+    display: flex;
+}
+
+.wrap{
+    flex-wrap: wrap;
+}
+.w-50{
+    flex:0 0 50%; 
+}
+
+.text-right{
+    text-align: right;
+}
+
+.d-inline-block{
+    display: inline-block;
+}
+
+input{
+    width: 300px;
+    height: 32px;
+    border:1px solid #444;
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+label{
+    width: 30px;
+    display: inline-block;
+}
+button{
+    padding: 10px 20px;
+    display: inline-block;
+}
+select{
+    width: 300px;
+    height: 32px;
+    border:1px solid #444;
+    border-radius:0; 
+    margin-bottom: 10px;
+    padding: 0 10px;
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Challenge 1</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+
+
+    </head>
+    <body>
+
+        <div class="container">
+            <label>Weight: </label>
+            <br>
+            <input type="number" name="weight" value="" id="weight">
+            <br>
+            <label>Age: </label>
+            <br>
+            <input type="text" name="age" value="" id="age"><br>
+            <label>Profession: </label>
+            <br>
+            <select id="profesion">
+                <option value="programmer">Programmer</option>
+                <option value="administrative-worker">Administrative worker</option>
+                <option value="manager">Manager</option>
+                <option value="soldier">Soldier</option>
+                <option value="athlete">Athlete</option>
+                <option value="driver">Driver</option>
+                <option value="nurse">Nurse</option>
+                <option value="police-officer">Police officer</option>
+            </select>
+
+
+
+
+            <p>Max amount of calories is:  <span id="calories"></span></p>
+
+            <button onclick="calculateCalories();">Calculate!</button>
+
+        </div>
+
+
+        <script type="text/javascript">
+            /*
+             TASK:
+             
+             Write a program that displays the maximum amount of callories a person may ingest.
+             
+             The maximum amount of callories is equal to: weight*activityFactor*ageFactor
+             
+             The activityFactor is dependant on the persons occupation, so:
+             
+             - If they are a "programmer", an "administrative worker" or "manager", their activityFactor is 100
+             - If they are a "police officer" or a "soldier", their activityFactor is 200
+             - If they are an "athlete", their activityFactor is 300
+             - For other occupations the activityFactor is 150
+             
+             The ageFactor is dependant of the persons age, so:
+             
+             - If they are between 0 and 3 years of age, the ageFactor is 1.9
+             - If they are between 4 and 10 years of age, the ageFactor is 1.5
+             - If they are between 11 and 18 years of age, the ageFactor is 1.2
+             - If they are between 19 and 26 years of age, the ageFactor is 1
+             - If they are between 27 and 30, or 50 and 60 years of age, the ageFactor is 0.8
+             - If they are between 31 and 35, or 45 and 49 years of age, the ageFactor is 0.7
+             - If they are between 36 and 44, or > 60 years of age, the ageFactor is 0.6
+             
+             
+             
+             */
+
+            //Create the calculateCallories() function, which is called on the click of a button
+
+            // initial state
+            // You have 3 variables which are needed for calculations and another 3 which will be used to store input values.
+            // From the input variables you should calculate the 3 variables from the beggining of the function. 
+            // E.g. if the occupation input variable has the value soldier, the activityFactor should be set to 200. 
+
+
+            function calculateCalories() {
+                let weight = getValue('weight');
+                let age = getValue('age');
+                let proffesion = getValue('profesion');
+
+                let ageFactor;
+                let activityFactor;
+
+
+                switch (proffesion) {
+                    case 'programmer':
+                    case 'administrative-worker':
+                    case 'manager':
+                        activityFactor = 100;
+                        break;
+
+                    case 'soldier':
+                    case 'police-officer':
+                        activityFactor = 200;
+                        break;
+                    case 'athlete':
+                        activityFactor = 300;
+                        break;
+                    default :
+                        activityFactor = 150;
+                        break;
+                }
+                if(age >= 0 && age <= 3){
+                    ageFactor = 1.9;
+                }else if(age >= 4 && age <= 10){
+                  ageFactor = 1.5;  
+                }else if(age >= 11 && age <= 18){
+                    ageFactor = 1.2;
+                }else if(age >= 19 && age <= 26){
+                    ageFactor = 1.2;
+                }else if((age >= 27 && age <= 30) || (age >= 50 && age <= 60)){
+                   ageFactor = 0.8; 
+                }else if((age >= 31 && age <= 35) || (age >= 45 && age <= 49)){
+                    ageFactor = 0.7;
+                }else{
+                    ageFactor = 0.6;
+                }
+                
+                document.getElementById('calories').innerText = weight * ageFactor * activityFactor;
+
+            }
+
+            function getValue(id) {
+                return document.getElementById(id).value;
+            }
+
+        </script>
+    </body>
+</html>
